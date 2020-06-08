@@ -1,0 +1,36 @@
+@import './scss/reset.scss';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: .3rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+// 不加local和加local都是css 模块化
+.cls1{
+  background: red;
+}
+
+// 加是css全局化
+:global{
+  .cls2{
+    background: green;
+  }
+}
+
+// <Dialog class="p1"> 
+// 组件调用的class，P1 \deep\ 组件内部你要覆盖的class
+
+p{
+  height: 100px;
+}

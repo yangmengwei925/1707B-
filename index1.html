@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖和节流</title>
+</head>
+<body>
+    <script>
+        // 防抖
+        function debounce(fn,time){
+            let timer = null;
+            return function (){
+                if(timer){
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(()=>{
+                    fn.applay(this.arguments)
+                },time)
+            }
+        }
+        //节流
+        function throttle(fn,time){
+            let canRun =true;
+            return function(){
+                if(!canRun){
+                    return
+                }
+                canRun =false;
+                setTimeout(()=>{
+                    fn.apply(this.arguments);
+                    canRun =true;
+                },time)
+            }
+        }
+        //深拷贝
+        function deepClone(obj){
+            var result =Array.isArray(obj) ? [] :{};
+            for(var key in obj){
+                if(obj.hasownProperty(key)){
+                    if(typeof obj[key] === 'object' && obj[key]!==null){
+                        result[key] = deepClone(obj[key])
+                    }else{
+                        result[key] = obj[key]
+                    }
+                }
+            }
+            return result;
+        }
+         function deepClone(arr){
+            return JSON.parse(JSON.stringify(arr))
+        }
+        // 数组乱序
+        // 取巧的一种算法，但是每个位置乱序的概率不同
+        function mixArr(arr){
+            return arr.sort(()=>{
+                return Math.random()-0.5;
+            })
+        }
+        //数组去重
+        function removeDup(arr){
+            var result =[];
+            var hasMap ={};
+            for(var i= 0;i<arr.length;i++){
+                var temp =arr[i]
+                if(!hashMap[temp]){
+                    hashMap[temp] = true
+                    result.push(temp)
+                }
+            }
+            return result;
+        }
+       Array.form(new Set(arr)) 
+    //    [...new Set(arr)]
+    // 数组 filter
+    Array.prototype.filter=function(fn,context){
+        if(typeof fn != 'function'){
+            throw new TypeError(`${fn} is not a function`)
+        }
+        let arr =this;
+        let result =[]
+        for(var i =0;i<arr.length;i++){
+            let temp =fn.call(context,arr[i],i,arr);
+            if(temp) {
+                result.push(arr[i]);
+            }
+        }
+        return result 
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>总复习</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        p{
+            margin: 20px auto;
+            width: 50%;
+            height: 100px;
+            background: coral;
+            border-radius: 10px;
+        }
+        div p:first-child{
+            float: left;
+        }
+        div p:last-child{
+            overflow: hidden;
+        }
+        html,body{
+            height: 100%;
+        }
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+        /*小屏幕*/
+        @media screen and (max-width: 768px) {
+            p{
+                background-color: coral;
+            }
+        }
+        /*平板*/
+        @media screen and (min-width: 768px) and (max-width: 992px){
+            p{
+                background-color: cyan;
+            }
+        }
+        /*中等屏幕*/
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+            p{
+                background-color: darkmagenta;
+            }
+        }
+        /*大屏幕，或者宽屏*/
+        @media screen and (min-width: 1200px) {
+            p{
+                background-color: deeppink;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <!-- <iframe src="https://www.baidu.com" frameborder="0"></iframe> -->
+    <div>
+        <p>浮动元素</p>
+        <p>占据其他</p>
+    </div>
+</body>
+</html>
